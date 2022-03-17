@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-3 offset-2">
+        <app-pagination [page]="queryParams.page" [pageSize]="queryParams.pageSize" [collectionSize]="movieList.count" (pageChange)="pageChange($event)"></app-pagination>
+    </div>
+    <div class="col-6">
+        <div class="row">
+            <span>Sort by:</span>
+            <select name="sortBy" id="sortBy" [(ngModel)]="queryParams.sort" (change)="getAll()">
+                <option value="rating">Rating</option>
+                <option value="year">Year</option>
+            </select>
+            <button  (click)="changeDirection()">{{queryParams.sortDirection == "desc" ? '↑' : "↓"}}</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <app-movie-card *ngFor="let movie of movieList.results" [movie]="movie"></app-movie-card>
+    </div>
+</div>

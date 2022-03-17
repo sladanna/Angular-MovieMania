@@ -1,0 +1,18 @@
+<div class="row" style="background-color: lightgray; margin: 10px;" >
+    <div class="col">
+       <h2><a [routerLink]="['/new-movie', movie._id]">{{movie.name}}</a>({{movie.year}})</h2>
+       <p>{{movie.description}}</p>
+   
+        <div class="row">
+            <div class="col-2">
+              <span>
+                  <img src="../../../assets/images/gold_star.png">
+                  {{movie.rating}}
+              </span>  
+            </div>
+            <div class="col-2 offset-6">
+                {{movie.duration}}
+            </div>
+        </div>
+    </div>
+</div>

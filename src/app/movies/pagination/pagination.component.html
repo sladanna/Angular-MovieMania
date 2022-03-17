@@ -1,0 +1,4 @@
+<div class="row">
+        <button class="btn" style="margin: 0px 10px;" type="submit" (click)="prevPage()" *ngIf="this.page > 1"> << Prev</button>
+        <button class="btn" type="submit" (click)="nextPage()" *ngIf="page * pageSize < collectionSize"> Next >> </button>
+</div>

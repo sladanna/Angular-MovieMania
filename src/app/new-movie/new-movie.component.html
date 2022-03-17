@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-6 offset-3">
+        <form>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+                <input type="text"  class="form-control" id="name" name="name" [(ngModel)]="movie.name" required #name="ngModel" [class.is-invalid]="name.invalid">
+              </div>
+            </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                  <textarea name="description" id="description" class="form-control" [(ngModel)]="movie.description" required #description="ngModel" [class.is-invalid]="description.invalid" minlength="30" maxlength="250"></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Year</label>
+                <div class="col-sm-10">
+                  <input type="number"  class="form-control" id="year" name="year" [(ngModel)]="movie.year" required #year="ngModel" [class.is-invalid]="year.invalid" min="1000" max="9999">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Rating</label>
+                <div class="col-sm-10">
+                  <input type="text"  class="form-control" id="rating" name="rating" [(ngModel)]="movie.rating">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Duration</label>
+                <div class="col-sm-10">
+                  <input type="number"  class="form-control" id="duration" name="duration" [(ngModel)]="movie.duration">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Director</label>
+                <div class="col-sm-10">
+                  <input type="text"  class="form-control" id="directro" name="director" [(ngModel)]="movie.director">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Genre</label>
+                <div class="col-sm-8">
+                  <select name="genre" id="genre" class="form-control" [(ngModel)]="movie.genre">
+                      <option *ngFor="let genre of genres" [value]="genre.name">{{genre.name}}</option>
+                  </select>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-primary" (click)="showMenu()">+</button>
+                </div>
+              </div>
+              <button class="btn btn-primary" type="submit" (click)="save()">Save</button>
+          </form>
+          <form *ngIf="displayMenu">
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Enter new genre</label>
+                <div class="col-sm-6">
+                  <input type="text"  class="form-control" id="new-genre" name="new-genre" [(ngModel)]="newGenre.name">
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-primary" (click)="postGenre()">Add new genre</button>
+                </div>
+              </div>
+          </form>
+    </div>
+</div>
